@@ -14,8 +14,6 @@ public:
     explicit Event(int number_of_frames=1); // how many frames it should last
     virtual ~Event() = default;
 
-    //Event(Event&& other);
-    
     void update();
 
     // returns whether event has finished
@@ -33,7 +31,9 @@ public:
     void add_next(T&& event) {
         next_events.push_back(std::make_shared<T>(std::forward<T>(event)));
     }
-    void add_next(const std::shared_ptr<Event>& event) {
+    // ignore clang-tidy's recommendation for pass by const ref and pass by value,
+    // otherwise calling add_next(shared_ptr<Event>) matches add_next(T&& Event) (compile error)
+    void add_next(std::shared_ptr<Event> event) {
         next_events.push_back(event);
     }
     

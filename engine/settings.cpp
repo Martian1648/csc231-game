@@ -1,11 +1,10 @@
 #include "settings.h"
 #include <fstream>
-#include <unordered_map>
 #include <filesystem>
-#include <format>
 #include <iostream>
 
-Settings::Settings(std::filesystem::path filename) : path{std::filesystem::absolute(filename)} {
+Settings::Settings(const std::filesystem::path& filename)
+    :path{std::filesystem::absolute(filename)} {
     load();
 }
 
@@ -24,12 +23,11 @@ void Settings::load() {
     load("title", title);
     load("screen_width", screen_width);
     load("screen_height", screen_height);
-    load("tilesize", tilesize);
+    load("tile_size", tile_size);
     load("zoom", zoom);
     load("tiles", tiles);
-    load("heros", heros);
+    load("heroes", heroes);
     load("monsters", monsters);
-    load("weapons", weapons);
     load("items", items);
     load("effects", effects);
     load("sounds", sounds);
