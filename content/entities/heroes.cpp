@@ -2,6 +2,7 @@
 #include "engine.h"
 #include "rest.h"
 #include "move.h"
+#include "closedoor.h"
 namespace Heroes {
     std::unique_ptr<Action> behavior(Engine& engine, Entity&){
         std::string key = engine.input.get_last_keypress();
@@ -15,6 +16,8 @@ namespace Heroes {
             return std::make_unique<Move>(Vec{1,0});
         }else if(key=="SPACE"){
             return std::make_unique<Rest>();
+        }else if(key=="C"){
+            return std::make_unique<CloseDoor>();
         }
         return nullptr;
     }
