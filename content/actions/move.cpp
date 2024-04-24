@@ -9,6 +9,7 @@
 Move::Move(Vec direction):direction{direction}{}
 
 Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
+    entity->change_direction(direction);
     Vec position = entity->get_position();
     Vec new_position = position+direction;
     Tile& tile = engine.dungeon.get_tile(new_position);
@@ -26,7 +27,7 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
        }
    }
     else{
-        entity->change_direction(direction);
+
         entity->move_to(new_position);
         return success();
     }

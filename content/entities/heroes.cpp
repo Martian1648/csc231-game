@@ -4,6 +4,8 @@
 #include "move.h"
 #include "closedoor.h"
 #include "sword.h"
+#include "spear.h"
+#include "mace.h"
 namespace Heroes {
     std::unique_ptr<Action> behavior(Engine& engine, Entity& entity){
         std::string key = engine.input.get_last_keypress();
@@ -29,8 +31,9 @@ namespace Heroes {
     void make_knight(std::shared_ptr<Entity>& hero) {
         hero->set_sprite("knight");
         hero->set_max_health(10);
-        hero->add_to_inventory(std::make_shared<Sword>(1));
-        hero->add_to_inventory(std::make_shared<Sword>(1));
+        hero->add_to_inventory(std::make_shared<Sword>(10));
+        hero->add_to_inventory(std::make_shared<Spear>(1));
+        hero->add_to_inventory(std::make_shared<Mace>(2));
         hero->behavior=behavior;
 
     }
