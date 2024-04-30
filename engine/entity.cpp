@@ -87,6 +87,14 @@ Team Entity::get_team() const {
     return team;
 }
 
+void Entity::set_weight(Weight new_weight) {
+    weight = new_weight;
+}
+
+Weight Entity::get_weight() {
+    return weight;
+}
+
 bool Entity::is_inventory_full() const {
     auto empty_slots = std::count(std::begin(inventory), std::end(inventory), nullptr);
     return empty_slots == 0;

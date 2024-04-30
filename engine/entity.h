@@ -13,6 +13,7 @@ class Item;
 
 constexpr int default_speed{8}, max_inventory{5};
 enum class Team { Hero, Monster };
+enum class Weight { Light, Medium, Heavy};
 
 // base class for all interacting beings
 class Entity {
@@ -36,6 +37,8 @@ public:
     [[nodiscard]] bool is_alive() const;
     void set_team(Team new_team);
     [[nodiscard]] Team get_team() const;
+    void set_weight(Weight new_weight);
+    [[nodiscard]] Weight get_weight();
 
     // managing items within the inventory
     [[nodiscard]] bool is_inventory_full() const;
@@ -67,6 +70,8 @@ private:
     // teams can be used to determine who can attack whom
     Team team;
 
+    // class determines the amount of damage an entity takes from opponents
+    Weight weight;
     // speed is energy gain per turn, once an entity has enough energy
     // it can take a turn
     int speed{default_speed}, energy{0};

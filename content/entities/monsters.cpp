@@ -10,12 +10,15 @@ namespace Monsters {
     void make_orc_masked(std::shared_ptr<Entity> monster){
         monster->set_sprite("orc_masked");
         monster->set_max_health(12);
+        monster->set_weight(Weight::Medium);
         monster->behavior=behaviora;
     }
 
     void make_ogre(std::shared_ptr<Entity> monster){
         monster->set_sprite("ogre");
         monster->set_max_health(20);
+        monster->set_weight(Weight::Heavy);
+
         monster->behavior=behaviora;
     }
 
@@ -23,6 +26,7 @@ namespace Monsters {
     void make_muddy(std::shared_ptr<Entity> monster){
         monster->set_sprite("muddy");
         monster->set_max_health(2);
+        monster->set_weight(Weight::Light);
         monster->behavior=behaviora;
     }
 

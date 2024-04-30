@@ -7,6 +7,7 @@
 #include "sprite.h"
 
 // forward declarations
+enum class Damage_Types {Pierce, Blunt, Cut};
 class Engine;
 class Entity;
 
@@ -28,4 +29,5 @@ public:
 
     std::string name;
     Sprite sprite;
+    Damage_Types type;
 };
