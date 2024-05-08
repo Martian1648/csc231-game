@@ -13,14 +13,13 @@ Result OpenDoor::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     if(tile.has_door()){
 
         tile.door->open();
-
+        engine.events.create_event<Sound>("door-open");
         return success();
     }
 
     if(tile.door->is_open()){
 
-        auto update = engine.events.create_event<UpdateFOV>();
-        update->add_next(Sound{"door-open"});
+        engine.events.create_event<UpdateFOV>();
         return success();
     }
 }
