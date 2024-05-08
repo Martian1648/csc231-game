@@ -1,6 +1,6 @@
 #include "closedoor.h"
 #include "entity.h"
-#include "UpdateFOV.h"
+#include "updatefov.h"
 Result CloseDoor::perform(Engine& engine, std::shared_ptr<Entity> entity){
     Vec position = entity->get_position();
     std::vector<Vec> neighbors = engine.dungeon.neighbors(position);
