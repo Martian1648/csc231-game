@@ -30,10 +30,11 @@ namespace Heroes {
     }
     void make_knight(std::shared_ptr<Entity>& hero) {
         hero->set_sprite("knight");
-        hero->set_max_health(10);
-        hero->add_to_inventory(std::make_shared<Sword>(10));
-        hero->add_to_inventory(std::make_shared<Spear>(1));
-        hero->add_to_inventory(std::make_shared<Mace>(2));
+        hero->set_max_health(20);
+        hero->add_to_inventory(std::make_shared<Sword>(8));
+        hero->add_to_inventory(std::make_shared<Spear>(8));
+        hero->add_to_inventory(std::make_shared<Mace>(8));
+        hero->set_weight(Weight::Medium);
         hero->behavior=behavior;
 
     }

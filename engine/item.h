@@ -3,11 +3,11 @@
 #include <functional>
 #include <memory>
 #include <string>
-
+#include <vector>
 #include "sprite.h"
 
 // forward declarations
-enum class Damage_Types {Pierce, Blunt, Cut};
+enum class Damage_Type {Pierce, Blunt, Cut, Electric};
 class Engine;
 class Entity;
 
@@ -29,5 +29,5 @@ public:
 
     std::string name;
     Sprite sprite;
-    Damage_Types type;
+    std::vector<Damage_Type> types;
 };

@@ -6,11 +6,15 @@
 #include "wander.h"
 #include "engine.h"
 #include "randomness.h"
+#include "bite.h"
+#include "hammer_big.h"
+#include "cleaver.h"
 namespace Monsters {
     void make_orc_masked(std::shared_ptr<Entity> monster){
         monster->set_sprite("orc_masked");
         monster->set_max_health(12);
         monster->set_weight(Weight::Medium);
+        monster->add_to_inventory(std::make_shared<Cleaver>(4));
         monster->behavior=behaviora;
     }
 
@@ -18,8 +22,8 @@ namespace Monsters {
         monster->set_sprite("ogre");
         monster->set_max_health(20);
         monster->set_weight(Weight::Heavy);
-
-        monster->behavior=behaviora;
+        monster->add_to_inventory(std::make_shared<Hammer_Big>(6));
+        monster->behavior=behaviorb;
     }
 
 
@@ -27,7 +31,8 @@ namespace Monsters {
         monster->set_sprite("muddy");
         monster->set_max_health(2);
         monster->set_weight(Weight::Light);
-        monster->behavior=behaviora;
+        monster->add_to_inventory(std::make_shared<Bite>(2));
+        monster->behavior=behaviorc;
     }
 
     std::unique_ptr<Action> behaviora(Engine& engine, Entity& entity){

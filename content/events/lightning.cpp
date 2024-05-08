@@ -4,6 +4,7 @@
 
 #include "lightning.h"
 #include "engine.h"
+#include "sound.h"
 Lightning::Lightning(Vec position): position{position}{}
 
 void Lightning::execute(Engine& engine) {

@@ -1,10 +1,11 @@
 #pragma once
 #include <vector>
 
-std::vector<double> multipliers = {
+const std::vector<double> multipliers = {
     //x = l, m, h
-    //y = p, b, c
-    1.1, 1, .7,
-    1.1, 1, 1,
-    1.1, 1, .7
+    //y = p, b, c, e
+    1.5, 1, .5,
+    1.5, 1, 1,
+    1.5, 1, .5,
+    .25, .5, .75
 };
